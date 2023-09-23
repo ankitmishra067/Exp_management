@@ -1,0 +1,30 @@
+.Register-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Adjust the height as needed */
+    background-color: #f0f0f0; /* Background color for the page */
+  }
+  
+  .Register-form {
+    width: 300px; /* Adjust the form width as needed */
+    padding: 20px;
+    background-color: #fff; /* Background color for the form */
+    border: 1px solid #ccc; /* Border for the form */
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Box shadow for the form */
+  }
+    .Register-btn {
+    margin-top: 10px; /* Adjust the margin as needed */
+    padding: 10px 20px;
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transition for hover effect */
+  
+  }
+  
+  
