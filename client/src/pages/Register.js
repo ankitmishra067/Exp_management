@@ -30,7 +30,7 @@ const Register = () => {
   }, [navigate]);
   return (
     <>
-      <div className="resgister-page ">
+      <div className="register-page ">
         {loading && <Spinner />}
         <Form layout="vertical" onFinish={submitHandler}  className="Register-form">
           <h1>Register </h1>

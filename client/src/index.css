@@ -8,12 +8,6 @@
   height: 100vh;
 }
 
-.resgister-page {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 90vh;
-}
 
 /* transection page */
 .filters {

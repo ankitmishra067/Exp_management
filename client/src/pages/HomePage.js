@@ -24,7 +24,7 @@ const HomePage = () => {
   const [viewData, setViewData] = useState("table");
   const [editable, setEditable] = useState(null);
 
-  //table data
+
   const columns = [
     {
       title: "Date",
@@ -144,7 +144,6 @@ const HomePage = () => {
             <Select.Option value="7">LAST 1 Week</Select.Option>
             <Select.Option value="30">LAST 1 Month</Select.Option>
             <Select.Option value="365">LAST 1 year</Select.Option>
-            {/* <Select.Option value="custom">custom</Select.Option> */}
           </Select>
         </div>
         <div>
@@ -155,7 +154,7 @@ const HomePage = () => {
             <Select.Option value="expense">EXPENSE</Select.Option>
           </Select>
         </div>
-        <div className="switch-icons">
+        <div >
           <UnorderedListOutlined
             className={`mx-2 ${
               viewData === "table" ? "active-icon" : "inactive-icon"

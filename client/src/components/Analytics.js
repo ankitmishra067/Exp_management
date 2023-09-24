@@ -1,5 +1,6 @@
 import React from "react";
 import { Progress } from "antd";
+import moment from "moment";
 const Analytics = ({ allTransection }) => {
   const categories = [
     "salary",
@@ -32,6 +33,44 @@ const Analytics = ({ allTransection }) => {
     (totalIncomeTurnover / totalTurnover) * 100;
   const totalExpenseTurnoverPercent =
     (totalExpenseTurnover / totalTurnover) * 100;
+
+    const calculateMonthlyExpenses = () => {
+      const monthlyExpenses = {};
+      allTransection
+        .filter((transaction) => transaction.type === "expense")
+        .forEach((transaction) => {
+          const monthYear = moment(transaction.date).format("MMM YYYY");
+          if (!monthlyExpenses[monthYear]) {
+            monthlyExpenses[monthYear] = 0;
+          }
+          monthlyExpenses[monthYear] += transaction.amount;
+        });
+  
+      return monthlyExpenses;
+    };
+
+    const monthlyExpenses = calculateMonthlyExpenses();
+
+    const monthlyExpenseTrend = (
+      <div className="col-md-6">
+        <h6 className="bg-info p-2 text-light">Monthly Spending Trend</h6>
+        <div>
+          {Object.entries(monthlyExpenses).map(([monthYear, amount]) => (
+            <div className="card mt-2" key={monthYear}>
+              <div className="card-body">
+                <h6>{monthYear}</h6>
+                <Progress type="line"
+                  percent={((amount / totalExpenseTurnover) * 100).toFixed(0)}
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+
+
+
   return (
     <>
       <div className="row m-3">
@@ -84,6 +123,7 @@ const Analytics = ({ allTransection }) => {
             );
           })}
         </div>
+        {monthlyExpenseTrend}
       </div>
       <div className="row mt-3 analytics"></div>
     </>
