@@ -8,7 +8,7 @@ import '../Styles/Login.css'
 const Login = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  //from submit
+
   const submitHandler = async (values) => {
     try {
       setLoading(true);
@@ -22,16 +22,16 @@ const Login = () => {
       navigate("/");
     } catch (error) {
       setLoading(false);
-      message.error("something went wrong");
+      message.error("User Not Found");
     }
   };
 
-  //prevent for login user
   useEffect(() => {
     if (localStorage.getItem("user")) {
       navigate("/");
     }
   }, [navigate]);
+
   return (
     <>
       <div className="Login-page ">

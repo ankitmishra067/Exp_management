@@ -4,7 +4,9 @@
     align-items: center;
     justify-content: center;
     height: 90vh;
+    width: 70%;
   }
+ 
   
   .Login-form {
     width: 300px; 
