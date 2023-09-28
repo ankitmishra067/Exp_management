@@ -8,8 +8,6 @@
   height: 100vh;
 }
 
-
-/* transection page */
 .filters {
   display: flex;
   align-items: center;
@@ -17,9 +15,6 @@
   padding: 15px 20px;
   box-shadow: 0 0 3px gray;
 }
-/* transection page */
-
-/* antd icons */
 
 .switch-icons {
   border: 1px solid rgba(0, 0, 0, 0.677);

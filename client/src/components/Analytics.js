@@ -13,9 +13,11 @@ const Analytics = ({ allTransection }) => {
     "fee",
     "tax",
   ];
-  const totalExpenseTransactions = allTransection.filter(
-    (transaction) => transaction.type === "expense"
-  );
+  
+  // const totalExpenseTransactions = allTransection.filter(
+  //   (transaction) => transaction.type === "expense"
+  // );
+
 
   const totalTurnover = allTransection.reduce(
     (acc, transaction) => acc + transaction.amount,
@@ -48,18 +50,18 @@ const Analytics = ({ allTransection }) => {
   
       return monthlyExpenses;
     };
-
+    
     const monthlyExpenses = calculateMonthlyExpenses();
 
     const monthlyExpenseTrend = (
-      <div className="col-md-6">
+      <div className="col-md-6 ">
         <h6 className="bg-info p-2 text-light">Monthly Spending Trend</h6>
-        <div>
+        <div className="d-flex">
           {Object.entries(monthlyExpenses).map(([monthYear, amount]) => (
             <div className="card mt-2" key={monthYear}>
               <div className="card-body">
                 <h6>{monthYear}</h6>
-                <Progress type="line"
+                <Progress type="dashboard"
                   percent={((amount / totalExpenseTurnover) * 100).toFixed(0)}
                 />
               </div>
@@ -74,29 +76,7 @@ const Analytics = ({ allTransection }) => {
   return (
     <>
       <div className="row m-3">
-        <div className="col-md-3">
-          <div className="card">
-            <div className="card-header">Total TurnOver : {totalTurnover}</div>
-            <div className="card-body">
-              <h5 className="text-success">Income : {totalIncomeTurnover}</h5>
-              <h5 className="text-danger">Expense : {totalExpenseTurnover}</h5>
-              <div>
-                <Progress
-                  type="circle"
-                  strokeColor={"green"}
-                  className="mx-2"
-                  percent={totalIncomeTurnoverPercent.toFixed(0)}
-                />
-                <Progress
-                  type="circle"
-                  strokeColor={"red"}
-                  className="mx-2 mt-3"
-                  percent={totalExpenseTurnoverPercent.toFixed(0)}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        
         <div className="col-md-3">
           <h6 className="bg-warning p-2 text-light">Categorywise Expense</h6>
           {categories.map((category) => {
